@@ -171,8 +171,8 @@ msgstr "www.jivosite.ru"
 #. translators: plugin header field 'Version'
 #: jivosite.php:0
 #@ jivosite
-msgid "0.2"
-msgstr "0.2"
+msgid "1.0"
+msgstr "1.0"
 
 #: templates/page.php:5
 #@ jivosite
