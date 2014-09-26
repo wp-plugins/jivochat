@@ -16,9 +16,9 @@ if (!defined('ABSPATH')) die("go away!");
 
 load_plugin_textdomain('jivosite', PLUGINDIR.'/'.dirname(plugin_basename(__FILE__)));
 $lang = get_bloginfo("language");
-if($lang=="ru_RU"){
+if ($lang=="ru_RU") {
 	$jivo_addr = 'http://www.jivosite.ru';
-}else{
+} else {
 	$jivo_addr = 'https://www.jivochat.com';
 }
 
@@ -125,9 +125,9 @@ class jivosite {
      */
     public function install() {
 
-        if(!$this->widget_id){
+        if (!$this->widget_id) {
             $default_widget_id ='';
-            if(file_exists(realpath(dirname(__FILE__))."/id")){
+            if (file_exists(realpath(dirname(__FILE__))."/id") ){
                 $default_widget_id = file_get_contents(realpath(dirname(__FILE__))."/id");
             }
         }
@@ -156,36 +156,59 @@ class jivosite {
             }
 			$query['lang'] = JIVO_LANG;
             $content = http_build_query($query);
+			
+			if(ini_get('allow_url_fopen')){
+				$useCurl = false;
+			}elseif(!extension_loaded('curl')) {
+				if (!dl('curl.so')) {
+					$useCurl = false;
+				} else {
+					$useCurl = true;
+				}
+			} else {
+				$useCurl = true;
+			}
             // отправляем запрос
             try{
                 $path = JIVO_INTEGRATION_URL."/install";
                 if(!extension_loaded('openssl')){
                     $path = str_replace('https:','http:',$path);
                 }
-                $responce = file_get_contents(
-                    $path,
-                    false,
-                    stream_context_create(
-                        array(
-                            'http' => array(
-                                'method' => 'POST',
-                                'header' => 'Content-Type: application/x-www-form-urlencoded',
-                                'content' => $content
+                if($useCurl){
+                    if ( $curl = curl_init() ) {
+                        curl_setopt($curl, CURLOPT_URL, $path);
+                        curl_setopt($curl, CURLOPT_RETURNTRANSFER,true);
+                        curl_setopt($curl, CURLOPT_POST, true);
+                        curl_setopt($curl, CURLOPT_POSTFIELDS, $content);
+                        $responce = curl_exec($curl);
+                        curl_close($curl);
+                    }
+                } else {
+                    $responce = file_get_contents(
+                        $path,
+                        false,
+                        stream_context_create(
+                            array(
+                                'http' => array(
+                                    'method' => 'POST',
+                                    'header' => 'Content-Type: application/x-www-form-urlencoded',
+                                    'content' => $content
+                                )
                             )
                         )
-                    )
-                );
-                if($responce){
+                    );
+}
+                if ($responce) {
                     if(strstr($responce,'Error')){
                         return array("error"=>$responce);
-                    }else{
+                    } else {
                         $this->widget_id = $responce;
                         $this->token = $authToken;
                         $this->save();
                         return true;
                     }
                 }
-            }catch (Exception $e) {
+            } catch (Exception $e) {
                 _e("Connection error",'jivosite');
             }
         }
@@ -208,14 +231,30 @@ class jivosite {
      * render admin page
      */
     public function render(){
-        $result =$this->catchPost();
+        $result = $this->catchPost();
         $error = '';
         $widget_id = $this->widget_id;
-        if(is_array($result)&&isset($result['error'])){
+        if (is_array($result)&&isset($result['error'])) {
             $error = $result['error'];
-        }
-        require_once str_replace("__LANG__", self::$lang, "lang/__LANG__.php");
-        require_once "templates/page.php";
+        }		
+		
+		if (ini_get('allow_url_fopen')) {
+			$requirementsOk = true;
+		} elseif(!extension_loaded('curl')) {
+			if (!dl('curl.so')) {
+				$requirementsOk = false;
+			} else {
+				$requirementsOk = true;
+			}
+		} else {
+			$requirementsOk = true;
+		}
+		
+		if ($requirementsOk) {
+			require_once "templates/page.php";
+		}else{
+			require_once "templates/error.php";
+		}
     }
 
     public function append($widget_id = false){

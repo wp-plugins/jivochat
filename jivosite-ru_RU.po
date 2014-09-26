@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: JivoChat v0.2\n"
+"Project-Id-Version: JivoChat v1.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-09-04 09:54+0400\n"
-"PO-Revision-Date: 2014-09-04 09:02:21+0000\n"
+"PO-Revision-Date: 2014-09-26 05:49:22+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -28,7 +28,7 @@ msgstr ""
 msgid "JivoChat"
 msgstr "JivoSite"
 
-#: jivosite.php:185
+#: jivosite.php:212
 #@ jivosite
 msgid "Connection error"
 msgstr "Ошибка соединения"
@@ -174,8 +174,14 @@ msgstr "www.jivosite.ru"
 msgid "1.0"
 msgstr "1.0"
 
+#: templates/error.php:5
 #: templates/page.php:5
 #@ jivosite
 msgid "logo.png"
 msgstr "logo_ru.png"
+
+#: templates/error.php:10
+#@ jivosite
+msgid "Unfortunately, your server configuration does not allow the plugin to connect to JivoChat servers to create account. Please, go to <a target=\"_blank\" href=\"https://admin.jivosite.com/autoreg?lang=en\">https://admin.jivosite.com/autoreg?lang=en</a> and sign up. During the signup process you will be offered to download another Wordpress module that does not require to communicate over the network"
+msgstr "К сожалению, конфигурация вашего сервера не позволяет подключиться к серверу JivoSite, чтобы создать аккаунт. Пожалуйста, перейдите на адрес <a target=\"_blank\" href=\"https://admin.jivosite.com/autoreg\">https://admin.jivosite.com/autoreg</a>, зарегистрируйтесь, и при регистрации вам будет предложено загрузить другой модуль для Wordpress, который работает без необходимости обращения к внешнему сервису"
 
