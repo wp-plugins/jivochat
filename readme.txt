@@ -3,7 +3,7 @@ Contributors: JivoChat
 Donate link: http://jivochat.com/
 Tags: jivochat, chat for website, banckle, Chat, chat online, chat software, click desk, clickdesk, contact plugin, contact us, customer support, free chat, IM Chat, live chat, live chat inc, live chat services, live chat software, live chatting, live help, live support, live web chat, livechat, olark, online chat, online support, php live chat, snapengage, support software, Website Chat, WordPress chat, wordpress live chat, wordpress live chat plugin, zendesk, Zopim, Zopim live chat, jivosite, живосайт, живой сайт
 Requires at least: 3.0.1
-Tested up to: 4.1
+Tested up to: 4.2
 Stable tag: trunk
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
