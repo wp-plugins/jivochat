@@ -71,8 +71,8 @@ You can choose to install the desktop app, or you can install our JivoChat app o
 
 == Changelog ==
 
-= 1.0 =
-* Welcome our very first version of the plugin!
-
 = 1.1 =
 * Agent app url changed
+
+= 1.0 =
+* Welcome our very first version of the plugin!
