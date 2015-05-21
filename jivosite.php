@@ -5,7 +5,7 @@
  * Author URI: www.jivochat.com
  * Plugin URI: http://jivochat.com/
  * Description: With JivoChat you can chat with visitors on your website to increase conversion and sales 
- * Version: 1.0
+ * Version: 1.1
  *
  * Text Domain:   jivosite
  * Domain Path:   /
