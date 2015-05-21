@@ -55,48 +55,7 @@
         </div>
         <div class="gray_form">
             <h3>1. <?php _e('Install Agent’s App','jivosite'); ?></h3>
-            <p><?php _e('This app will let you respond to visitors on your website. It works on Windows and Mac. To start installation, please click “INSTALL NOW” and follow the instructions.','jivosite'); ?></p>
-            <script type="text/javascript">
-                browserNameVer = function() {
-                    var N = navigator.appName, ua = navigator.userAgent.toLowerCase(), p = navigator.platform.toLowerCase(), tem;
-                    var M = ua.match(/(opera|chrome|safari|firefox|msie)\/?\s*(\.?\d+(\.\d+)*)/i);
-                    var mac = p ? /mac/.test(p) : /mac/.test(ua);
-                    if(M && (tem = ua.match(/version\/([\.\d]+)/i))!= null) M[2] = tem[1];
-                    M = M? [M[1], M[2]]: [N, navigator.appVersion,'-?'];
-                    M.mac = mac;
-                    return M;
-                }();
-                if (!(browserNameVer.mac && (browserNameVer[0] == "safari") && (parseFloat(browserNameVer[1]) >= 7))) {
-                    var swfVersionStr = "9.0.115";
-                    var xiSwfUrlStr = "/static/swf/playerProductInstall.swf";
-                    var flashvars = {"appurl":"https:\/\/s3-eu-west-1.amazonaws.com\/jivo-dev\/jivosite.air","appversion":"1.1.0","str_install":"<?php _e("Download application",'jivosite');?>","str_launch":"<?php _e("Launch",'jivosite');?>","str_upgrade":"<?php _e("Upgrade",'jivosite');?>","str_installing":"<?php _e("Installing...",'jivosite');?>","email":"","password":"","lang":"<?php echo JIVO_LANG; ?>","showbutton":1};
-                    var params = {};
-                    params.quality = "high";
-                    params.allowscriptaccess = "sameDomain";
-                    params.allowfullscreen = "true";
-                    params.wmode = "transparent";
-                    var attributes = {};
-                    attributes.id = "badge";
-                    attributes.name = "badge";
-                    attributes.align = "middle";
-                    swfobject.embedSWF(
-                        "<? echo JIVO_PLUGIN_URL; ?>swf/badge.swf", "badgeContainer",
-                        "220", "140",
-                        swfVersionStr, xiSwfUrlStr,
-                        flashvars, params, attributes);
-                }
-            </script>
-            <div id="badgeContainer">
-                <table class="center">
-                    <tr>
-                        <td><a href="http://www.adobe.com/go/getair/" target="_blank" class="button green pull-left"><?php _e("Step 1. Download Adobe AIR",'jivosite');?></a></td>
-                    </tr>
-                    <tr>
-                        <td><a href="https://s3-eu-west-1.amazonaws.com/jivo-dev/jivosite.air"  class="button blue pull-left"><?php _e("Step 2. Download Application",'jivosite');?></a></td>
-                    </tr>
-                </table>
-            </div>
-            <p class="small"><?php _e('In order to install the app, you will need administrator’s privileges','jivosite'); ?></p>
+            <a class="button button-primary" href="http://<?php _e('www.jivochat.com','jivosite'); ?>/apps" target="_blank"><?php _e('Install Agent’s App','jivosite'); ?></a>
             <h3>2. <?php _e('Customize Settings and add Agents in the Admin Panel','jivosite'); ?></h3>
             <p><?php _e('After you have installed the agent’s app, please login to the admin panel to add more agents’ accounts, customize the chat window settings and set up proactive invitations to get the most from your new live chat!','jivosite'); ?></p>
             <a  class="button button-primary"  href='<?php if($this->token){ echo JIVO_INTEGRATION_URL.'/login?token='.$this->token.(JIVO_LANG!='ru'?"&lang=".JIVO_LANG:''); }else{echo JIVOSITE_URL;} ?>' target="_blank"><?php _e('Go to JivoChat Admin Panel','jivosite'); ?></a>

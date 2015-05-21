@@ -90,46 +90,6 @@ msgstr "Поздравляем, вы успешно установили онл�
 msgid "Install Agent’s App"
 msgstr "Установите приложение оператора"
 
-#: templates/page.php:58
-#@ jivosite
-msgid "This app will let you respond to visitors on your website. It works on Windows and Mac. To start installation, please click “INSTALL NOW” and follow the instructions."
-msgstr "Это приложение позволит вам общаться с посетителями сайта. Оно работает под Windows, Mac и Linux. Для установки нажмите кнопку INSTALL NOW, а затем «Открыть» и следуйте указаниям мастера."
-
-#: templates/page.php:72
-#@ jivosite
-msgid "Download application"
-msgstr "Скачать приложение"
-
-#: templates/page.php:72
-#@ jivosite
-msgid "Launch"
-msgstr "Запустить"
-
-#: templates/page.php:72
-#@ jivosite
-msgid "Upgrade"
-msgstr "Обновить"
-
-#: templates/page.php:72
-#@ jivosite
-msgid "Installing..."
-msgstr "Установка..."
-
-#: templates/page.php:92
-#@ jivosite
-msgid "Step 1. Download Adobe AIR"
-msgstr "Шаг 1. Скачайте приложение"
-
-#: templates/page.php:95
-#@ jivosite
-msgid "Step 2. Download Application"
-msgstr "Шаг 2. Скачайте Adobe AIR"
-
-#: templates/page.php:99
-#@ jivosite
-msgid "In order to install the app, you will need administrator’s privileges"
-msgstr "Для установки приложения Вам необходимы полномочия администратора компьютера"
-
 #: templates/page.php:100
 #@ jivosite
 msgid "Customize Settings and add Agents in the Admin Panel"
